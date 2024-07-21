@@ -1,10 +1,13 @@
-function add(number1, number2) {
-  return number1 + number2;
+function checkAnswer() {
+  var correctAnswer = "4";
+  var userAnswer = document.querySelector('input[name="quiz"]:checked').value;
+
+  if (userAnswer === correctAnswer) {
+    document.getElementById("feedback").textContent = "Correct! Well done.";
+  } else {
+    document.getElementById("feedback").textContent =
+      "That's incorrect. Try again!";
+  }
 }
 
-document.getElementById("add").addEventListener("click", function () {
-  const number1 = parseFloat(document.getElementById("number1").value) || 0;
-  const number2 = parseFloat(document.getElementById("number2").value) || 0;
-  const result = add(number1, number2);
-  document.getElementById("calculation-result").textContent = result;
-});
+document.getElementById("submit-answer").addEventListener("click", checkAnswer);
